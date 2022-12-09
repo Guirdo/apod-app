@@ -1,5 +1,12 @@
 .header {
+  text-align: center;
+  padding: $s-xs;
+  background-color: $primary;
+  box-shadow: 0 2px 2px $dark;
+
   &__brand {
+    color: $info;
+    font-weight: bold;
     font-size: $s-xlg;
   }
 }
