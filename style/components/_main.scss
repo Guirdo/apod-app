@@ -1,0 +1,7 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: $s-sm;
+  height: 100%;
+  background-color: $info;
+}
