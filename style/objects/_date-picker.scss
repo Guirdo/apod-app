@@ -1,0 +1,59 @@
+.date-picker {
+  display: flex;
+  flex-direction: row;
+  gap: $s-sm;
+  margin-inline: auto;
+
+  &-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    color: white;
+  }
+
+  &__label {
+    font-size: $s-sm;
+  }
+
+  &__year,
+  &__month,
+  &__day {
+    color: white;
+    border: none;
+    border-bottom: 1px solid $info;
+    background-color: transparent;
+    font-size: $s-lg;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+
+    /* Remove scroll in inputs type=number */
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__button {
+    align-self: center;
+    background-color: $success;
+    border-radius: 50%;
+    border: none;
+    padding: $s-xs;
+    text-align: center;
+
+    &:hover {
+      box-shadow: $secondary 0 22px 70px 4px;
+      transition: box-shadow 100ms;
+    }
+  }
+}

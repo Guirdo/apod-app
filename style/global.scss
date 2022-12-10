@@ -1,6 +1,9 @@
 @import "./settings";
 @import "./generics";
 
+/* Objects */
+@import "./objects/date-picker";
+
 /* Components */
 @import "./components/header";
 @import "./components/main";
