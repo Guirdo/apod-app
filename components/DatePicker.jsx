@@ -3,19 +3,28 @@ import React from 'react';
 import moment from 'moment';
 import {useForm} from '../hooks/useForm';
 import {Send} from 'iconoir-react';
+import useAPODStore from '../stores/apod';
 
 function DatePicker() {
+  const date = useAPODStore((state) => state.date);
+  const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
   const [dateValues, handleInputChange] = useForm({
-    year: moment().year(),
-    month: moment().month() + 1,
-    day: moment().date(),
+    year: moment(date).year(),
+    month: moment(date).month() + 1,
+    day: moment(date).date(),
   });
 
   const {year, month, day} = dateValues;
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement date picking
+    const newDate = `${year}-${month}-${day}`;
+
+    if (moment(newDate).isValid()) {
+      fetchAPODWithDate(newDate);
+    } else {
+      alert('Invalid date');
+    }
   };
 
   return (
