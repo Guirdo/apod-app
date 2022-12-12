@@ -12,6 +12,7 @@ const useAPODStore = create((set, get) => ({
   media_type: 'image',
   title: 'Loading',
   url: '#',
+  setDate: (date) => set({date}),
   fetchAPOD: async () => {
     const date = get().date;
     const response = await fetch(`${API_URL}&date=${date}`)
