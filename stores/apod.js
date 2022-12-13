@@ -15,16 +15,16 @@ const useAPODStore = create((set, get) => ({
   setDate: (date) => set({date}),
   fetchAPOD: async () => {
     const date = get().date;
-    const response = await fetch(`${API_URL}&date=${date}`)
-        .then((res) => res.json());
-
-    set({...response});
+    await fetch(`${API_URL}&date=${date}`)
+        .then((res) => res.json())
+        .then((res) => set({...res}))
+        .catch((error) => console.log(error));
   },
   fetchAPODWithDate: async (date) => {
-    const response = await fetch(`${API_URL}&date=${date}`)
-        .then((res) => res.json());
-
-    set({...response});
+    await fetch(`${API_URL}&date=${date}`)
+        .then((res) => res.json())
+        .then((res) => set({...res}))
+        .catch((error) => console.log(error));
   },
 }));
 
