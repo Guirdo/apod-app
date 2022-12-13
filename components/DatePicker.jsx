@@ -30,7 +30,7 @@ function DatePicker() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // eslint-disable-next-line max-len
-    const newDate = `${year}-${month < 10 ? '0'+month : month}-${day < 10 ? '0'+day:day}`;
+    const newDate = `${year}-${month < 10 ? '0'+parseInt(month) : month}-${day < 10 ? '0'+parseInt(day):day}`;
     const dateValidation = isAValidDate(newDate);
 
     if (dateValidation === true) {
