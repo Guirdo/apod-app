@@ -1,14 +1,15 @@
 /* eslint-disable require-jsdoc */
-import React from 'react';
+import React, {useEffect} from 'react';
 import moment from 'moment';
 import {useForm} from '../hooks/useForm';
 import {Send} from 'iconoir-react';
 import useAPODStore from '../stores/apod';
+import isAValidDate from '../helper/isAValidDate';
 
 function DatePicker() {
   const date = useAPODStore((state) => state.date);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
-  const [dateValues, handleInputChange] = useForm({
+  const [dateValues, handleInputChange, modifyValues] = useForm({
     year: moment(date).year(),
     month: moment(date).month() + 1,
     day: moment(date).date(),
@@ -16,14 +17,26 @@ function DatePicker() {
 
   const {year, month, day} = dateValues;
 
+  useEffect(() => {
+    // When the date changes, this function will modify
+    // the useForm initialState
+    modifyValues({
+      year: moment(date).year(),
+      month: moment(date).month() + 1,
+      day: moment(date).date(),
+    });
+  }, [date]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newDate = `${year}-${month}-${day}`;
+    // eslint-disable-next-line max-len
+    const newDate = `${year}-${month < 10 ? '0'+month : month}-${day < 10 ? '0'+day:day}`;
+    const dateValidation = isAValidDate(newDate);
 
-    if (moment(newDate).isValid()) {
+    if (dateValidation === true) {
       fetchAPODWithDate(newDate);
     } else {
-      alert('Invalid date');
+      alert(dateValidation);
     }
   };
 
