@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable require-jsdoc */
 import React from 'react';
 import moment from 'moment';
@@ -11,10 +12,12 @@ function Slider() {
   const url = useAPODStore((state) => state.url);
   const hdurl = useAPODStore((state) => state.hdurl);
   const title = useAPODStore((state) => state.title);
-  const isLoading = useAPODStore((state)=> state.isLoading);
-  const setIsLoading = useAPODStore((state)=> state.setIsLoading);
+  const media_type = useAPODStore((state) => state.media_type);
+  const thumbnail_url = useAPODStore((state) => state.thumbnail_url);
+  const isLoading = useAPODStore((state) => state.isLoading);
+  const setIsLoading = useAPODStore((state) => state.setIsLoading);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
-  const isHighQuality = useUIStore((state)=> state.isHighQuality);
+  const isHighQuality = useUIStore((state) => state.isHighQuality);
 
   const handlePrevious = () => {
     const previousDate = moment(date).subtract(1, 'day').format('YYYY-MM-DD');
@@ -40,17 +43,30 @@ function Slider() {
     }
   };
 
+  const renderImageOrVideo = () => {
+    return media_type === 'image' ?
+      <img
+        className='slider__image'
+        src={isHighQuality ? hdurl : url}
+        alt={title}
+      /> :
+      <>
+        <img
+          className='slider__image'
+          src={thumbnail_url}
+          alt={title}
+        />
+        <a href={url} target="_blank" rel='noreferrer'>Watch this video</a>
+      </>;
+  };
+
   return (
     <div className="slider">
       <figure className="slider-figure">
         {
           isLoading ?
             <h3 style={{color: 'white'}}>Loading...</h3> :
-            <img
-              className='slider__image'
-              src={isHighQuality ? hdurl : url}
-              alt={title}
-            />
+            renderImageOrVideo()
         }
       </figure>
 
