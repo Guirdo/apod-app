@@ -5,6 +5,11 @@
     align-items: center;
     gap: $s-md;
     color: white;
+
+    @include desktop-screen {
+      width: 50%;
+      align-self: center;
+    }
   }
 
   &__title {
