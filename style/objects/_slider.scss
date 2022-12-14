@@ -26,4 +26,28 @@
   &__next {
     margin-inline-end: auto;
   }
+
+  @include desktop-screen {
+    & {
+      grid-template-columns: auto 1fr auto;
+      grid-template-rows: auto;
+      width: 50%;
+      align-self: center;
+    }
+
+    &__previous,
+    &__next {
+      height: $s-xlg;
+      align-self: center;
+    }
+
+    &__previous {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    &-figure {
+      grid-column: 2 / 3;
+    }
+  }
 }
