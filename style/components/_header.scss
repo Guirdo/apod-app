@@ -7,6 +7,14 @@
   &__brand {
     color: $info;
     font-weight: bold;
-    font-size: $s-xlg;
+    font-size: $s-md;
+
+    @include tablet-screen {
+      font-size: $s-lg;
+    }
+
+    @include desktop-screen {
+      font-size: $s-xlg;
+    }
   }
 }
