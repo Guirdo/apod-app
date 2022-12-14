@@ -1,0 +1,17 @@
+.picture {
+  &-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $s-md;
+    color: white;
+  }
+
+  &__title {
+    color: $info;
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+}
