@@ -1,0 +1,25 @@
+.button {
+  padding: $s-xs;
+  border: 1px solid $primary;
+  border-radius: $s-xs;
+  text-decoration: none;
+  font-weight: bold;
+  overflow: visible;
+
+  &--info {
+    color: $dark;
+    background-color: $info;
+  }
+
+  &--dark {
+    color: $info;
+    background-color: $dark;
+  }
+
+  &:active {
+    transform: translateY(2px);
+    transform: translateY(2px);
+    transform: translateY(2px);
+    transition: all 0.3s ease;
+  }
+}
