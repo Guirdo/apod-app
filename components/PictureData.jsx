@@ -13,14 +13,14 @@ function PictureData() {
       {
         isLoading ?
         <h2>Loading...</h2> :
-        <>
+        <div>
           <h2 className='picture__title'>{title}</h2>
           <p className='picture__explanation'>{explanation}</p>
           <p className='picture__copyright'>
             <span className='picture__label'>Credits: </span>
             {copyright || 'No data'}
           </p>
-        </>
+        </div>
       }
     </div>
   );

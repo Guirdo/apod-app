@@ -12,6 +12,8 @@
 
   &__image {
     width: 100%;
+    animation-name: move-in-from-top;
+    animation-duration: 2s;
   }
 
   &__previous,

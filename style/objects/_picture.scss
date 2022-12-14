@@ -6,6 +6,11 @@
     gap: $s-md;
     color: white;
 
+    & > div {
+      animation-name: move-in-from-left;
+      animation-duration: 2s;
+    }
+
     @include desktop-screen {
       width: 50%;
       align-self: center;
