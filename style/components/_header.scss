@@ -1,5 +1,6 @@
 .header {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
   padding: $s-xs;
   background-color: $primary;
   box-shadow: 0 2px 2px $dark;
@@ -8,6 +9,7 @@
     color: $info;
     font-weight: bold;
     font-size: $s-md;
+    margin-right: auto;
 
     @include tablet-screen {
       font-size: $s-lg;
