@@ -2,7 +2,7 @@ import moment from 'moment';
 import create from 'zustand';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&thumbs=true`;
 
 const useAPODStore = create((set, get) => ({
   copyright: '',
@@ -12,6 +12,7 @@ const useAPODStore = create((set, get) => ({
   media_type: 'image',
   title: 'Loading',
   url: '#',
+  thumbnail_url: '',
   isLoading: true,
   setIsLoading: () => set({isLoading: true}),
   setDate: (date) => set({date}),
