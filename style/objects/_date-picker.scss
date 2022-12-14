@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: $s-sm;
   margin-inline: auto;
+  overflow: visible;
 
   &-group {
     display: flex;
@@ -50,10 +51,5 @@
     border: none;
     padding: $s-xs;
     text-align: center;
-
-    &:hover {
-      box-shadow: $secondary 0 22px 70px 4px;
-      transition: box-shadow 100ms;
-    }
   }
 }

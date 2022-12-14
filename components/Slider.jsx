@@ -56,7 +56,14 @@ function Slider() {
           src={thumbnail_url}
           alt={title}
         />
-        <a href={url} target="_blank" rel='noreferrer'>Watch this video</a>
+        <a
+          className='button button--info'
+          href={url}
+          target="_blank"
+          rel='noreferrer'
+        >
+          Watch this video
+        </a>
       </>;
   };
 
@@ -71,17 +78,17 @@ function Slider() {
       </figure>
 
       <button
-        className="slider__previous"
+        className="button slider__previous"
         onClick={handlePrevious}
       >
-        <ArrowLeft />
+        <ArrowLeft strokeWidth={2.5}/>
       </button>
 
       <button
-        className="slider__next"
+        className="button slider__next"
         onClick={handleNext}
       >
-        <ArrowRight />
+        <ArrowRight strokeWidth={2.5}/>
       </button>
     </div>
   );

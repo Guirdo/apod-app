@@ -82,7 +82,7 @@ function DatePicker() {
         <label className="date-picker__label">Day</label>
       </div>
       <button
-        className='date-picker__button'
+        className='button date-picker__button'
       >
         <Send />
       </button>

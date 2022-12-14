@@ -11,6 +11,7 @@
     gap: $s-xs;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 
   &__image {
@@ -21,7 +22,8 @@
 
   &__previous,
   &__next {
-    width: $s-xlg;
+    background-color: $success;
+    border: 1px solid $info;
   }
 
   &__previous {
@@ -42,7 +44,6 @@
 
     &__previous,
     &__next {
-      height: $s-xlg;
       align-self: center;
     }
 
