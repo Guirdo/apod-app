@@ -1,8 +1,16 @@
 /* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
+import useUIStore from '../stores/ui';
 
 function QualitySwitch() {
-  const [isChecked, setIsChecked] = useState(false);
+  const isHighQuality = useUIStore((state)=> state.isHighQuality);
+  const [isChecked, setIsChecked] = useState(isHighQuality);
+  const setIsHighQuality = useUIStore((state)=> state.setIsHighQuality);
+
+  const handleOnChange = () => {
+    setIsHighQuality(!isChecked);
+    setIsChecked(!isChecked);
+  };
 
   return (
     <div className='quality'>
@@ -11,7 +19,7 @@ function QualitySwitch() {
         <input
           type="checkbox"
           checked={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
+          onChange={handleOnChange}
         />
         <span className="quality__slider" />
       </label>

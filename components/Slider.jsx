@@ -1,17 +1,20 @@
 /* eslint-disable require-jsdoc */
-import {ArrowLeft, ArrowRight} from 'iconoir-react';
-import moment from 'moment';
 import React from 'react';
+import moment from 'moment';
+import {ArrowLeft, ArrowRight} from 'iconoir-react';
 import isAValidDate from '../helper/isAValidDate';
 import useAPODStore from '../stores/apod';
+import useUIStore from '../stores/ui';
 
 function Slider() {
   const date = useAPODStore((state) => state.date);
   const url = useAPODStore((state) => state.url);
+  const hdurl = useAPODStore((state) => state.hdurl);
   const title = useAPODStore((state) => state.title);
   const isLoading = useAPODStore((state)=> state.isLoading);
   const setIsLoading = useAPODStore((state)=> state.setIsLoading);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
+  const isHighQuality = useUIStore((state)=> state.isHighQuality);
 
   const handlePrevious = () => {
     const previousDate = moment(date).subtract(1, 'day').format('YYYY-MM-DD');
@@ -45,7 +48,7 @@ function Slider() {
             <h3 style={{color: 'white'}}>Loading...</h3> :
             <img
               className='slider__image'
-              src={url}
+              src={isHighQuality ? hdurl : url}
               alt={title}
             />
         }
