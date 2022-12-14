@@ -9,6 +9,8 @@ function Slider() {
   const date = useAPODStore((state) => state.date);
   const url = useAPODStore((state) => state.url);
   const title = useAPODStore((state) => state.title);
+  const isLoading = useAPODStore((state)=> state.isLoading);
+  const setIsLoading = useAPODStore((state)=> state.setIsLoading);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
 
   const handlePrevious = () => {
@@ -16,6 +18,7 @@ function Slider() {
     const dateValidation = isAValidDate(previousDate);
 
     if (dateValidation === true) {
+      setIsLoading();
       fetchAPODWithDate(previousDate);
     } else {
       alert(dateValidation);
@@ -27,6 +30,7 @@ function Slider() {
     const dateValidation = isAValidDate(nextDate);
 
     if (dateValidation === true) {
+      setIsLoading();
       fetchAPODWithDate(nextDate);
     } else {
       alert(dateValidation);
@@ -36,11 +40,15 @@ function Slider() {
   return (
     <div className="slider">
       <figure className="slider-figure">
-        <img
-          className='slider__image'
-          src={url}
-          alt={title}
-        />
+        {
+          isLoading ?
+            <h3 style={{color: 'white'}}>Loading...</h3> :
+            <img
+              className='slider__image'
+              src={url}
+              alt={title}
+            />
+        }
       </figure>
 
       <button

@@ -12,18 +12,20 @@ const useAPODStore = create((set, get) => ({
   media_type: 'image',
   title: 'Loading',
   url: '#',
+  isLoading: true,
+  setIsLoading: () => set({isLoading: true}),
   setDate: (date) => set({date}),
   fetchAPOD: async () => {
     const date = get().date;
     await fetch(`${API_URL}&date=${date}`)
         .then((res) => res.json())
-        .then((res) => set({...res}))
+        .then((res) => set({...res, isLoading: false}))
         .catch((error) => console.log(error));
   },
   fetchAPODWithDate: async (date) => {
     await fetch(`${API_URL}&date=${date}`)
         .then((res) => res.json())
-        .then((res) => set({...res}))
+        .then((res) => set({...res, isLoading: false}))
         .catch((error) => console.log(error));
   },
 }));
