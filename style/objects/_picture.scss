@@ -1,12 +1,12 @@
 .picture {
   &-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $s-md;
     color: white;
 
     & > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $s-md;
       animation-name: move-in-from-left;
       animation-duration: 2s;
     }
