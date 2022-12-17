@@ -13,11 +13,11 @@ function PictureOfTheDay() {
   });
 
   return (
-    <main className='main'>
+    <>
       <DatePicker />
       <Slider />
       <PictureData />
-    </main>
+    </>
   );
 }
 
