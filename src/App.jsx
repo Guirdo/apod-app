@@ -1,26 +1,18 @@
 /* eslint-disable require-jsdoc */
 import React from 'react';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Header from '../components/Header';
 import PictureOfTheDay from '../components/PictureOfTheDay';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <PictureOfTheDay />,
-  },
-  {
-    path: '/random',
-    element: <h1>Random page</h1>,
-  },
-]);
 
 function App() {
   return (
     <>
       <Header />
       <main className='main'>
-        <RouterProvider router={router} />
+        <Routes>
+          <Route path='/' element={<PictureOfTheDay />}/>
+          <Route path='/random' element={<h1>Random page</h1>}/>
+        </Routes>
       </main>
     </>
   );
