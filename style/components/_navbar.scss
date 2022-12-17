@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  padding: $s-xs;
+  background-color: $primary;
+  box-shadow: 0 2px 2px $dark;
+  color: $info;
+
+  &-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    gap: $s-md;
+  }
+
+  &__brand {
+    font-weight: bold;
+    font-size: $s-md;
+    flex-grow: 2;
+
+    @include tablet-screen {
+      font-size: $s-lg;
+    }
+
+    @include desktop-screen {
+      font-size: $s-xlg;
+    }
+  }
+
+  &__item {
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
