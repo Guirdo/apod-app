@@ -2,7 +2,6 @@
 import moment from 'moment';
 import {DiceFive} from 'iconoir-react';
 import useAPODStore from '../stores/apod';
-import {useEffect} from 'react';
 
 /* eslint-disable require-jsdoc */
 function RandomDatePicker() {
@@ -13,10 +12,6 @@ function RandomDatePicker() {
   const year = moment(date).year();
   const month = moment(date).month() + 1;
   const day = moment(date).date();
-
-  useEffect(() => {
-    fetchRandomPicture();
-  }, []);
 
   const handleRandom = async () => {
     setIsLoading();
