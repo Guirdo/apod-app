@@ -28,6 +28,12 @@ const useAPODStore = create((set, get) => ({
         .then((res) => set({...res, isLoading: false}))
         .catch((error) => console.log(error));
   },
+  fetchRandomPicture: async () => {
+    await fetch(`${API_URL}&count=1`)
+        .then((res) => res.json())
+        .then((res) => set({...res[0], isLoading: false}))
+        .catch((error) => console.log(error));
+  },
 }));
 
 export default useAPODStore;
