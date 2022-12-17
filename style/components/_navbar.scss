@@ -8,7 +8,7 @@
 
   &-list {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     list-style: none;
     width: 100%;
@@ -30,8 +30,23 @@
   }
 
   &__item {
+    display: none;
     font-weight: bold;
-    flex-shrink: 0;
+
+    &--active {
+      display: block;
+      width: 100%;
+      order: 2;
+      margin-left: $s-lg;
+    }
+
+    @include tablet-screen {
+      display: block;
+    }
+
+    @include desktop-screen {
+      display: block;
+    }
   }
 
   &__link {
@@ -40,6 +55,18 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  &__toggle {
+    order: 1;
+
+    @include tablet-screen {
+      display: none;
+    }
+
+    @include desktop-screen {
+      display: none;
     }
   }
 }
