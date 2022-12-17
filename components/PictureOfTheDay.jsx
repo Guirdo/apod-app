@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, {useEffect} from 'react';
 import useAPODStore from '../stores/apod';
 import DatePicker from './DatePicker';
@@ -7,8 +8,10 @@ import Slider from './Slider';
 // eslint-disable-next-line require-jsdoc
 function PictureOfTheDay() {
   const fetchAPOD = useAPODStore((state) => state.fetchAPOD);
+  const setDate = useAPODStore((state)=>state.setDate);
 
   useEffect(() => {
+    setDate(moment().format('YYYY-MM-DD'));
     fetchAPOD();
   });
 
