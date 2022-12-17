@@ -1,0 +1,14 @@
+.random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $s-sm;
+
+  &-figure {
+    text-align: center;
+
+    @include desktop-screen {
+      width: 70%;
+    }
+  }
+}
