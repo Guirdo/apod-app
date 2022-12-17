@@ -6,6 +6,20 @@
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: $s-xs;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px $dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $info;
+  border-radius: $s-xs;
+  box-shadow: 2px 2px 4px $dark;
+}
+
 html,
 body {
   width: 100vw;
