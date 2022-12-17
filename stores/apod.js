@@ -17,8 +17,7 @@ const useAPODStore = create((set, get) => ({
   setIsLoading: () => set({isLoading: true}),
   setDate: (date) => set({date}),
   fetchAPOD: async () => {
-    const date = get().date;
-    await fetch(`${API_URL}&date=${date}`)
+    await fetch(`${API_URL}&date=${get().date}`)
         .then((res) => res.json())
         .then((res) => set({...res, isLoading: false}))
         .catch((error) => console.log(error));
