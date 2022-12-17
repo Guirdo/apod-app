@@ -6,6 +6,11 @@
 
   &-figure {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: $s-sm;
+    justify-content: center;
+    align-items: center;
 
     @include desktop-screen {
       width: 70%;
