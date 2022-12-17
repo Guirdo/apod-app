@@ -1,13 +1,15 @@
 /* eslint-disable require-jsdoc */
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import PictureOfTheDay from '../components/PictureOfTheDay';
 
 function App() {
   return (
     <>
-      <Header />
+      <header>
+        <Navbar />
+      </header>
       <main className='main'>
         <Routes>
           <Route path='/' element={<PictureOfTheDay />}/>
