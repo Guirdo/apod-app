@@ -5,12 +5,14 @@ import moment from 'moment';
 import {ArrowLeft, ArrowRight} from 'iconoir-react';
 import isAValidDate from '../helper/isAValidDate';
 import useAPODStore from '../stores/apod';
+import useUIStore from '../stores/ui';
 import Picture from './Picture';
 
 function Slider() {
   const date = useAPODStore((state) => state.date);
   const isLoading = useAPODStore((state) => state.isLoading);
   const setIsLoading = useAPODStore((state) => state.setIsLoading);
+  const setErrorMessage = useUIStore((state)=> state.setErrorMessage);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
 
   const handlePrevious = () => {
@@ -21,7 +23,7 @@ function Slider() {
       setIsLoading();
       fetchAPODWithDate(previousDate);
     } else {
-      alert(dateValidation);
+      setErrorMessage(dateValidation);
     }
   };
 
@@ -33,7 +35,7 @@ function Slider() {
       setIsLoading();
       fetchAPODWithDate(nextDate);
     } else {
-      alert(dateValidation);
+      setErrorMessage(dateValidation);
     }
   };
 
