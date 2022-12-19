@@ -4,6 +4,7 @@ import {Route, Routes} from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import PictureOfTheDay from '../components/PictureOfTheDay';
 import RandomPicture from '../components/RandomPicture';
+import Footer from '../components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/random' element={<RandomPicture />}/>
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
