@@ -4,10 +4,12 @@ import moment from 'moment';
 import {useForm} from '../hooks/useForm';
 import {Send} from 'iconoir-react';
 import useAPODStore from '../stores/apod';
+import useUIStore from '../stores/ui';
 import isAValidDate from '../helper/isAValidDate';
 
 function DatePicker() {
   const date = useAPODStore((state) => state.date);
+  const setErrorMessage = useUIStore((state)=> state.setErrorMessage);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
   const [dateValues, handleInputChange, modifyValues] = useForm({
     year: moment(date).year(),
@@ -36,7 +38,12 @@ function DatePicker() {
     if (dateValidation === true) {
       fetchAPODWithDate(newDate);
     } else {
-      alert(dateValidation);
+      setErrorMessage(dateValidation);
+      modifyValues({
+        year: moment(date).year(),
+        month: moment(date).month() + 1,
+        day: moment(date).date(),
+      });
     }
   };
 
