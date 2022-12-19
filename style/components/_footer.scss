@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $s-lg;
+  background-color: $dark;
+  font-weight: bold;
+  color: $info;
+
+  &__link {
+    color: inherit;
+  }
+}
