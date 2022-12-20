@@ -16,10 +16,18 @@
     border: 1px solid $info;
     border-radius: $s-xs;
     color: white;
-    min-width: 400px;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     gap: $s-xlg;
     text-align: center;
+
+    @include tablet-screen {
+      min-width: 400px;
+    }
+
+    @include desktop-screen {
+      min-width: 400px;
+    }
   }
 }
