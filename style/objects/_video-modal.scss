@@ -1,27 +1,11 @@
 .video-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(0 0 0);
-  background-color: rgb(0 0 0 / 50%);
+  @include modal-template;
 
   &-content {
-    padding: $s-lg;
-    background-color: $dark;
-    border: 1px solid $info;
-    border-radius: $s-xs;
-    color: white;
+    @include modal-content-template;
+
     width: 85%;
     max-height: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: $s-xlg;
-    text-align: center;
   }
 
   &__iframe {
@@ -29,8 +13,6 @@
   }
 
   &__close {
-    display: flex;
     justify-content: center;
-    align-items: center;
   }
 }
