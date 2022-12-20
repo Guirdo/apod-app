@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
+import {ShareAndroid} from 'iconoir-react';
 import useAPODStore from '../stores/apod';
 
 function PictureData() {
@@ -40,7 +41,8 @@ function PictureData() {
               className='button button--info'
               onClick={handleShare}
             >
-              {shareButtonText}
+              <ShareAndroid strokeWidth={2.5}/>
+              <span>{shareButtonText}</span>
             </button>
           </div>
       }

@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/react-in-jsx-scope */
+import {PlayOutline} from 'iconoir-react';
 import useAPODStore from '../stores/apod';
 import useUIStore from '../stores/ui';
 
@@ -29,7 +30,8 @@ function Picture() {
           className='button button--info'
           onClick={()=> setShowVideo(true)}
         >
-          Watch this video
+          <PlayOutline strokeWidth={2.5}/>
+          <span>Watch this video</span>
         </button>
       </>;
 }
