@@ -11,6 +11,16 @@ This app is a nice front-end app for the Astronomical Picture Of the Day API fro
 
 ## Demo
 
+- Home page
+
+![screenshot-apod-app-guirdo vercel app-2022 12 19-21_09_27](https://user-images.githubusercontent.com/21044700/208572573-ffc7a4cd-6b4c-4658-b799-2b5e5682f18a.png)
+
+- Random picture
+
+![screenshot-apod-app-guirdo vercel app-2022 12 19-21_10_45](https://user-images.githubusercontent.com/21044700/208572711-aef8589b-f807-4325-a230-f5d7fb8d785a.png)
+
+
+
 ## Tech stack
 
 - HTML used for organizing the content 
