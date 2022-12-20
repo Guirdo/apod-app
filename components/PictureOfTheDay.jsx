@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, {useEffect} from 'react';
 import moment from 'moment';
 import {useLocation, useNavigate} from 'react-router-dom';
@@ -12,8 +13,8 @@ import useUIStore from '../stores/ui';
 function PictureOfTheDay() {
   const fetchAPOD = useAPODStore((state) => state.fetchAPOD);
   const fetchAPODWithDate = useAPODStore((state) => state.fetchAPODWithDate);
-  const setErrorMessage = useUIStore((state) => state.setErrorMessage);
   const setDate = useAPODStore((state) => state.setDate);
+  const setErrorMessage = useUIStore((state) => state.setErrorMessage);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,7 +33,7 @@ function PictureOfTheDay() {
         navigate('/');
       }
     }
-  });
+  }, []);
 
   return (
     <>
