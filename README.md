@@ -1,5 +1,7 @@
 # APOD App
 
+![apod-app](https://socialify.git.ci/Guirdo/apod-app/image?description=1&font=Raleway&language=1&name=1&owner=1&pattern=Charlie%20Brown&stargazers=1&theme=Dark)
+
 This app is a nice front-end app for the Astronomical Picture Of the Day API from Nasa.
 
 ## Table of content
