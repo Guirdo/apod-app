@@ -11,6 +11,7 @@ function Picture() {
   const media_type = useAPODStore((state) => state.media_type);
   const thumbnail_url = useAPODStore((state) => state.thumbnail_url);
   const isHighQuality = useUIStore((state) => state.isHighQuality);
+  const setShowVideo = useUIStore((state)=> state.setShowVideo);
 
   return media_type === 'image' ?
       <img
@@ -24,14 +25,12 @@ function Picture() {
           src={thumbnail_url}
           alt={title}
         />
-        <a
+        <button
           className='button button--info'
-          href={url}
-          target="_blank"
-          rel='noreferrer'
+          onClick={()=> setShowVideo(true)}
         >
           Watch this video
-        </a>
+        </button>
       </>;
 }
 

@@ -7,9 +7,11 @@ import RandomPicture from '../components/RandomPicture';
 import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 import useUIStore from '../stores/ui';
+import VideoModal from '../components/VideoModal';
 
 function App() {
   const errorMessage = useUIStore((state)=> state.errorMessage);
+  const showVideo = useUIStore((state)=> state.showVideo);
 
   return (
     <>
@@ -23,6 +25,9 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      {
+        showVideo && <VideoModal />
+      }
       {
         errorMessage !== '' && <Modal />
       }
