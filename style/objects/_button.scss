@@ -5,6 +5,8 @@
   text-decoration: none;
   font-weight: bold;
   overflow: visible;
+  display: flex;
+  align-items: center;
 
   &--info {
     color: $dark;
@@ -21,7 +23,6 @@
   }
 
   &:active {
-    transform: translateY(2px);
     transform: translateY(2px);
     transition: all 0.3s ease;
   }
